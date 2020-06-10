@@ -1,6 +1,6 @@
 {
   "name": "enable-window-document",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Enables \"window\" and \"document\" globals so browser code does not throw errors in Node. Built with JSDOM.",
   "main": "index.js",
   "scripts": {
