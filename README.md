@@ -3,10 +3,16 @@
 The goal of this package is to work as a quick-and-dirty one-liner that will allow Node to `require` and otherwise execute traditional browser code without throwing errors.  Simply set the `window` and `document` globals with:
 
 ```
+/* [CommonJS] */
 require('enable-window-document');
 ```
+*- or -*
+```
+/* [ES6] */
+import 'enable-window-document'
+```
 
-No variable assignment required, just call it!
+No variable assignment required, just call it!  The variables are stored on the `global` object so you can refer to them as you normally would in browser JS.
 
 ## Example
 Won't work:
