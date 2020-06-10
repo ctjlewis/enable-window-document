@@ -36,9 +36,14 @@ The specific need for this functionality came from the `web-widgets` package, wh
 
 By importing this package (which depends on JSDOM), we can expose the `window` and `document` globals to the whole project, meaning we can write all of our browser-optimized (and DOM-heavy) code in a file like `browser.js`, but still use that same code for server-side rendering in Node with `require('browser.js')`. 
 
- In Node, the widget tree is built out in the virtual DOM and then exported as flat HTML with `outerHTML`.  In the browser, the DOM is manipulated directly on-the-fly (i.e. with `Node.appendChild`).  
+ In Node, `web-widgets` builds out the widget tree on the virtual DOM and then exports it as flat HTML using the `Node.outerHTML` property, and in the browser, the DOM is manipulated directly on-the-fly (i.e. with `Node.appendChild`). With `enable-window-document`, all that is needed to reuse the original browser library is creating an separate JS file for Node, importing this package, and then importing your browser code:
+ ```
+ require('enable-window-document');
+ require('browser.js');
+ myBrowserObject.doStuff(); 
 
-**Additionally, we can Closure Compile our browser code before depending on it in Node, meaning builds are as small and performant as possible. No webpack, no extra polyfills.**
+ // code like you're in the browser =)
+ ```
 
 ## Implementation
 This package simply creates a blank JSDOM with four lines of code, and stores the global `window` and `document` variables, which point to the empty DOM:
@@ -52,6 +57,6 @@ global.document = window.document;
 ```
 
 ## Digressions
-It should really take *zero* lines to run browser-compatible JS in Node, but one line will do for now. The important part is that instead of writing everything for Node and then using `browserify` and other tools to polyfill it for the browser, we can write strict code for the browser and force Node to interpret Javascript in the same way the browser does.  
+It should really take *zero* extra lines to run browser-compatible JS in Node, but one line will do for now. The important part is that instead of writing everything for Node and then using `browserify` and other tools to polyfill it for the browser, we can write strict code for the browser and force Node to interpret Javascript in the same way the browser does.  
 
 Why the Node runtime does not expose `window` and `document` OOTB is a valid question, as whatever rationale exists behind that decision cannot be more concrete than the principle that code which can execute in a browser should be able to execute in the Node runtime. Javascript output from one environment should === the same Javascript run in another. [It's supposed to be a lingua franca!](https://i.imgur.com/TwkD81I.jpeg)
