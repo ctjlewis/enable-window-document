@@ -17,17 +17,6 @@ By importing this package (which depends on JSDOM), we can expose the `window` a
 
 **Additionally, we can Closure Compile our browser code before depending on it in Node, meaning builds are as small and performant as possible. No webpack, no extra polyfills.**
 
-## Behind the scenes
-This package simply creates a blank JSDOM with four lines of code, and stores the global `window` and `document` variables, which point to the empty DOM:
-
-```
-let JSDOM = require('jsdom'),
-    DOM = new JSDOM.JSDOM(`<html><body></body></html>`);
-
-global.window = DOM.window,
-global.document = window.document;
-```
-
 ## Example
 Won't work:
 
@@ -43,6 +32,17 @@ require('enable-window-document');
 console.log(document.createElement('a'));
 
 >   HTMLAnchorElement {Symbol(impl): HTMLAnchorElementImpl}
+```
+
+## Implementation
+This package simply creates a blank JSDOM with four lines of code, and stores the global `window` and `document` variables, which point to the empty DOM:
+
+```
+let JSDOM = require('jsdom'),
+    DOM = new JSDOM.JSDOM(`<html><body></body></html>`);
+
+global.window = DOM.window,
+global.document = window.document;
 ```
 
 ## Digressions
