@@ -1,7 +1,7 @@
 {
   "name": "window-document",
   "version": "1.0.0",
-  "description": "Enables \"document\" and \"browser\" globals so browser code does not throw errors in Node.",
+  "description": "Enables \"window\" and \"document\" globals so browser code does not throw errors in Node. Built with JSDOM.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/TeleworkInc/window-document/issues"
   },
-  "homepage": "https://github.com/TeleworkInc/window-document#readme"
+  "homepage": "https://github.com/TeleworkInc/window-document#readme",
+  "dependencies": {
+    "jsdom": "^16.2.2"
+  }
 }
