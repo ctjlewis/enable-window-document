@@ -32,12 +32,18 @@ console.log(document.createElement('a'));
 ```
 
 ## Implementation
-This package simply creates a blank JSDOM with four lines of code, and stores the global `window` and `document` variables, which point to the empty DOM:
+This package simply creates a blank JSDOM with a few lines of code, and stores the global `window` and `document` variables, which point to the empty DOM:
 
 ```
 let JSDOM = require('jsdom'),
-    DOM = new JSDOM.JSDOM(`<html><body></body></html>`);
+    DOM = new JSDOM.JSDOM(`<html><body></body></html>`, {
+        url: 'https://localhost',
+        resources: 'usable',
+        runScripts: 'dangerously'
+    });
 
 global.window = DOM.window,
 global.document = window.document;
 ```
+
+The `url` param is set for compatibility reasons related to `localStorage`, and `resources` and `runScripts` are set by default so that external scripts work as expected.

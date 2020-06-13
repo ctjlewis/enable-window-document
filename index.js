@@ -1,6 +1,8 @@
 let JSDOM = require('jsdom'),
     DOM = new JSDOM.JSDOM(`<html><body></body></html>`, {
-        url: 'https://localhost'
+        url: 'https://localhost',
+        resources: 'usable',
+        runScripts: 'dangerously'
     });
 
 global.window = DOM.window,
