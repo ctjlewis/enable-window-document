@@ -39,7 +39,9 @@ let JSDOM = require('jsdom'),
     DOM = new JSDOM.JSDOM(`<html><body></body></html>`, {
         url: 'https://localhost',
         resources: 'usable',
-        runScripts: 'dangerously'
+        runScripts: global.UNSAFE_MODE 
+            ? 'dangerously' 
+            : 'outside-only'
     });
 
 global.window = DOM.window,
@@ -47,3 +49,6 @@ global.document = window.document;
 ```
 
 The `url` param is set for compatibility reasons related to `localStorage`, and `resources` and `runScripts` are set by default so that external scripts work as expected.
+
+## Unsafe Mode
+By default, JSDOM is called with `runScripts: 'outside-only'`. Set `global.UNSAFE_MODE` before your `require('enable-window-document')` call to enable dangerous mode and execute external scripts when added to DOM.

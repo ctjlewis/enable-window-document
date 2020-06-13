@@ -2,7 +2,9 @@ let JSDOM = require('jsdom'),
     DOM = new JSDOM.JSDOM(`<html><body></body></html>`, {
         url: 'https://localhost',
         resources: 'usable',
-        runScripts: 'dangerously'
+        runScripts: global.UNSAFE_MODE 
+            ? 'dangerously' 
+            : 'outside-only'
     });
 
 global.window = DOM.window,
