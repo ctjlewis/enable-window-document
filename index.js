@@ -9,3 +9,7 @@ let JSDOM = require('jsdom'),
 
 global.window = DOM.window,
 global.document = window.document;
+
+/**
+ * Unwind load events; 
+ */
