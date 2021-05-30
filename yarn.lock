@@ -154,13 +154,6 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-enable-window-document@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/enable-window-document/-/enable-window-document-1.7.0.tgz#772fac99d3ecbaa88c9682b7fb807321faaad3bc"
-  integrity sha512-6JJifr50hmNwxYU7l8vabqM4Fm2+SJth0p9NJtIRXVCB1YUOpUDTWZZZNp/6aG5acxCoOM0Wfpw+bCvAuMQ3WQ==
-  dependencies:
-    jsdom "^16.2.2"
-
 escodegen@^1.14.1:
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/escodegen/-/escodegen-1.14.2.tgz#14ab71bf5026c2aa08173afba22c6f3173284a84"
@@ -643,9 +636,9 @@ word-wrap@~1.2.3:
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
 ws@^7.2.3:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
-  integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==
+  version "7.4.6"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+  integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
