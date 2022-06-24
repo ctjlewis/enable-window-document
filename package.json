@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/TeleworkInc/enable-window-document#readme",
   "dependencies": {
-    "jsdom": "^16.2.2"
+    "jsdom": "^16.5.0"
   }
 }
